@@ -23,7 +23,36 @@
 #include "main.h"
 #include "project_interrupts.h"
 
+static volatile uint16_t PS2_X_DATA = 0;
+static volatile uint16_t PS2_Y_DATA = 0;
+static volatile PS2_DIR_t PS2_DIR = PS2_DIR_CENTER;
+static volatile PS2_DIR_t CURR_DIR = PS2_DIR_UP;
+static volatile uint16_t move_count = 0;
 
+//*****************************************************************************
+// Returns the most current direction that was pressed.
+//*****************************************************************************
+PS2_DIR_t ps2_get_direction(void)
+{
+  PS2_DIR_t return_val = PS2_DIR;
+
+	if(PS2_X_DATA>PS2_ADC_HIGH_THRESHOLD){
+		return_val = PS2_DIR_LEFT;
+	}
+	else if(PS2_X_DATA<PS2_ADC_LOW_THRESHOLD){
+		return_val = PS2_DIR_RIGHT;
+	}
+	else if(PS2_Y_DATA>PS2_ADC_HIGH_THRESHOLD){
+		return_val = PS2_DIR_UP;
+	}
+	else if(PS2_Y_DATA<PS2_ADC_LOW_THRESHOLD){
+		return_val = PS2_DIR_DOWN;
+	}
+	else {
+		return_val = PS2_DIR_CENTER;
+	}
+	return return_val;
+}
 
 
 
