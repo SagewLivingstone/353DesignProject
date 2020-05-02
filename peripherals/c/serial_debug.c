@@ -49,6 +49,8 @@ bool init_serial_debug(bool enable_rx_irq, bool enable_tx_irq)
   { 
     return false;
   }
+	
+	printf("DEBUG: Serial debug initialization complete\n\r");
   
   return true;
 }
