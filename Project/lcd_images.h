@@ -20,5 +20,17 @@ extern const uint8_t lightbike_right_height;
 extern const uint8_t trail_width;
 extern const uint8_t trail_height;
 
+extern const uint8_t restartBitmaps[];
+extern const uint8_t restartWidthPixels;
+extern const uint8_t restartHeightPixels;
+
+extern const uint8_t blueWinsBitmaps[];
+extern const uint8_t blueWinsWidthPixels;
+extern const uint8_t blueWinsHeightPixels;
+
+extern const uint8_t redWinsBitmaps[];
+extern const uint8_t redWinsWidthPixels;
+extern const uint8_t redWinsHeightPixels;
+
 
 #endif

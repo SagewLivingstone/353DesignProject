@@ -97,6 +97,9 @@ bool check_trail_collision(player_t* player, player_t* ref);
 void player1_input(PS2_DIR_t input);
 
 void pause_pressed();
+void red_win();
+void blue_win();
+void draw_restart();
 void end_game();
 
 

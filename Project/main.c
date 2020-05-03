@@ -25,7 +25,7 @@
 player_t player1;
 player_t player2;
 
-bool game_over;
+bool game_over = true;
 bool kill = false;
 
 void init_game()
@@ -281,11 +281,12 @@ bool check_collision(player_t* player, player_t* ref)
 	calc_player_bounds(player);
 	if(check_world_collision(player))
 	{
+		printf("Collision bounds\n\r");
 		return true;
 	}
 	if(check_trail_collision(player, ref))
 	{
-		//printf("Collision\n\r");
+		printf("Collision tail\n\r");
 		return true;
 	}
 	return false;
@@ -335,15 +336,36 @@ void update_p1()
 	trail_decimator = (trail_decimator + 1) % 4;
 	
 	move_player(&player1);
-	if(check_collision(&player1, &player2))
+	if(!game_over)
 	{
-		end_game();
+		if(check_collision(&player1, &player2))
+		{
+			red_win();
+		}
 	}
-	// Check_Collision...
+}
+
+
+void red_win()
+{
+	lcd_draw_image(120, redWinsWidthPixels, 120, redWinsHeightPixels, redWinsBitmaps, LCD_COLOR_WHITE, LCD_COLOR_RED);
+	end_game();
+}
+
+void blue_win()
+{
+	lcd_draw_image(120, blueWinsWidthPixels, 120, blueWinsHeightPixels, blueWinsBitmaps, LCD_COLOR_WHITE, LCD_COLOR_CYAN);
+	end_game();
+}
+
+void draw_restart()
+{
+	lcd_draw_image(120, restartWidthPixels, 200, restartHeightPixels, restartBitmaps, LCD_COLOR_WHITE, LCD_COLOR_GRAY);
 }
 
 void end_game()
 {
 	game_over = true;
+	draw_restart();
 	io_expander_write_reg(MCP23017_GPIOA_R, 0xff);
 }
