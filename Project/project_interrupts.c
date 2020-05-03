@@ -63,6 +63,14 @@ void TIMER1A_Handler(void)
 	TIMER1->ICR |= TIMER_ICR_TATOCINT;
 }
 
+void TIMER2A_Handler(void)
+{
+	// UPDATE GAME STATE
+	
+	// Clear the interrupt
+	TIMER1->ICR |= TIMER_ICR_TATOCINT;
+}
+
 void TIMER4A_Handler(void)
 {
 	ADC0->PSSI |= ADC_PSSI_SS2;

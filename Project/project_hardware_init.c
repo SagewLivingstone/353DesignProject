@@ -28,6 +28,7 @@ void init_hardware()
 	ps2_initialize();
 	
 	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 50000000, false, true); // Status LED Timer
+	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 5000000, false, true); // Game Tick Timer
 	gp_timer_config_32(TIMER4_BASE,TIMER_TAMR_TAMR_PERIOD, 500000, false, true); // ADC Check Timer
 	printf("Initializing Done\n\r");
 }
