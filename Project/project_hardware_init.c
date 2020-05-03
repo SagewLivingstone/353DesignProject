@@ -25,10 +25,12 @@
 void init_hardware()
 {
 	printf("Initializing Hardware...\n\r");
+	lcd_config_screen();
+	lcd_clear_screen(LCD_COLOR_BLACK);
 	ps2_initialize();
 	
 	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 50000000, false, true); // Status LED Timer
-	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 5000000, false, true); // Game Tick Timer
+	gp_timer_config_32(TIMER2_BASE,TIMER_TAMR_TAMR_PERIOD, 833334, false, true); // Game Tick Timer 60Hz
 	gp_timer_config_32(TIMER4_BASE,TIMER_TAMR_TAMR_PERIOD, 500000, false, true); // ADC Check Timer
 	printf("Initializing Done\n\r");
 }

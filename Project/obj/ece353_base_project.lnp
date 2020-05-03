@@ -2,6 +2,7 @@
 ".\obj\main.o"
 ".\obj\project_hardware_init.o"
 ".\obj\project_interrupts.o"
+".\obj\lcd_images.o"
 ".\obj\adc.o"
 ".\obj\gpio_port.o"
 ".\obj\i2c.o"

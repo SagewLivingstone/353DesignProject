@@ -16,7 +16,7 @@
 .\obj\project_hardware_init.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\project_hardware_init.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\errno.h
 .\obj\project_hardware_init.o: ..\peripherals\include\lcd.h
-.\obj\project_hardware_init.o: ..\peripherals\include\lcd_images.h
+.\obj\project_hardware_init.o: lcd_images.h
 .\obj\project_hardware_init.o: ..\drivers\include\timers.h
 .\obj\project_hardware_init.o: ..\peripherals\include\ps2.h
 .\obj\project_hardware_init.o: ..\drivers\include\adc.h

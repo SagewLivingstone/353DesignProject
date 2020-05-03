@@ -65,12 +65,15 @@ void TIMER1A_Handler(void)
 
 void TIMER2A_Handler(void)
 {
-	// UPDATE GAME STATE
+	// Update game state at ~50hz
+	update_p1();
+	//update_p2();
 	
 	// Clear the interrupt
-	TIMER1->ICR |= TIMER_ICR_TATOCINT;
+	TIMER2->ICR |= TIMER_ICR_TATOCINT;
 }
 
+// Timer for setting of PS2 ADC
 void TIMER4A_Handler(void)
 {
 	ADC0->PSSI |= ADC_PSSI_SS2;
@@ -87,6 +90,8 @@ void ADC0SS2_Handler(void)
 	PS2_X_DATA = ADC0->SSFIFO2;
 	PS2_Y_DATA = ADC0->SSFIFO2;
 	PS2_DIR = ps2_get_direction();
+	
+	player1_input(PS2_DIR);
 	
   // Clear the interrupt
   ADC0->ISC |= ADC_ISC_IN2;

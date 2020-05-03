@@ -34,6 +34,7 @@
 #include "ps2.h"
 #include "launchpad_io.h"
 #include "serial_debug.h"
+#include "lcd_images.h"
 
 #include "project_interrupts.h"
 #include "project_hardware_init.h"
@@ -46,6 +47,51 @@ typedef enum{
   PS2_DIR_CENTER,
   PS2_DIR_INIT,
 } PS2_DIR_t;
+
+typedef struct
+{
+	uint32_t x;
+	uint32_t y;
+} trail_t;
+
+typedef struct
+{
+	// Vector
+	PS2_DIR_t direction;
+	uint32_t x;
+	uint32_t y;
+	// Bitmap
+	const uint8_t* bitmap;
+	uint32_t width;
+	uint32_t height;
+	uint32_t fColor;
+	uint32_t bColor;
+	uint32_t front_x;
+	uint32_t front_y;
+	// Trail
+	trail_t trail[400];
+	uint32_t trail_index;
+	
+} player_t;
+
+void update_p1(void);
+void update_p2(void);
+
+void move_player(player_t* player);
+void set_player_direction(player_t* player, PS2_DIR_t dir);
+
+// Trail
+void add_trail(player_t* player);
+void draw_trail(player_t* player);
+
+// Collision
+void calc_player_bounds(player_t* player);
+bool check_collision(player_t* player, player_t* ref);
+bool check_world_collision(player_t* player);
+bool check_trail_collision(player_t* player, player_t* ref);
+
+void player1_input(PS2_DIR_t input);
+
 
 
 #endif

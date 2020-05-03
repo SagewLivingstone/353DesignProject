@@ -22,6 +22,41 @@
 
 #include "main.h"
 
+player_t player1;
+player_t player2;
+
+void game_loop()
+{
+	bool kill = false;
+	uint16_t trail_decimator = 0;
+	
+	player1.x = 30;
+	player1.y = 30;
+	player1.fColor = LCD_COLOR_CYAN;
+	player1.bColor = LCD_COLOR_BLACK;
+	set_player_direction(&player1, PS2_DIR_UP);
+	
+	printf("Game beginning\n\r");
+	while(!kill)
+	{
+		if(!trail_decimator)
+		{
+			draw_trail(&player1);
+			// draw p2 too
+		}
+		trail_decimator = (trail_decimator + 1) % 8; // Only redraw trail every 8 frames
+		
+		calc_player_bounds(&player1);
+		// Draw at max speed
+		lcd_draw_image(player1.x, 
+								player1.width, 
+								player1.y, 
+								player1.height, 
+								player1.bitmap, 
+								player1.fColor, 
+								player1.bColor);
+	}
+}
 
 //*****************************************************************************
 //*****************************************************************************
@@ -66,5 +101,174 @@ main(void)
 	printf("****   and Max Klug   ******\n\r");
 	printf("****************************\n\r");
 	
+	game_loop();
+	
 	while(1){};
+}
+
+void move_player(player_t* player)
+{
+	switch(player->direction)
+	{
+		case PS2_DIR_UP:
+			player->y -= 1;
+			break;
+		case PS2_DIR_DOWN:
+			player->y += 1;
+			break;
+		case PS2_DIR_LEFT:
+			player->x -= 1;
+			break;
+		case PS2_DIR_RIGHT:
+			player->x += 1;
+			break;
+		default: break;
+	}
+}
+
+// Takes in a player pointer, calculates its image boundaries and such from direction
+// Always call this before drawing the player
+// The "inputs" are the direction and x,y of the player, it then updates the remainig
+//   player variables
+void calc_player_bounds(player_t* player)
+{
+	switch(player->direction)
+	{
+		case PS2_DIR_UP:
+			player->front_x = player->x;
+			player->front_y = player->y - player->height;
+			break;
+		case PS2_DIR_DOWN:
+			player->front_x = player->x;
+			player->front_y = player->y + player->height;
+			break;
+		case PS2_DIR_LEFT:
+			player->front_x = player->x - player->width;
+			player->front_y = player->y;
+			break;
+		case PS2_DIR_RIGHT:
+			player->front_x = player->x + player->width;
+			player->front_y = player->y;
+			break;
+		default: break;
+	}
+}
+
+void set_player_direction(player_t* player, PS2_DIR_t dir)
+{
+	player->direction = dir;
+	// Set bitmap from direction
+	//   and set width and height
+	switch(dir)
+	{
+		case PS2_DIR_UP:
+		{
+			player->bitmap = lightbike_up;
+			player->width  = lightbike_up_width;
+			player->height = lightbike_up_height;
+			break;
+		}
+		case PS2_DIR_DOWN:
+		{
+			player->bitmap = lightbike_down;
+			player->width  = lightbike_down_width;
+			player->height = lightbike_down_height;
+			break;
+		}
+		case PS2_DIR_LEFT:
+		{
+			player->bitmap = lightbike_left;
+			player->width  = lightbike_left_width;
+			player->height = lightbike_left_height;
+			break;
+		}
+		case PS2_DIR_RIGHT:
+		{
+			player->bitmap = lightbike_right;
+			player->width  = lightbike_right_width;
+			player->height = lightbike_right_height;
+			break;
+		}
+		default: break;
+	}
+	
+	calc_player_bounds(player);
+}
+
+void player1_input(PS2_DIR_t input)
+{
+	if(input == PS2_DIR_CENTER) return;
+	if(player1.direction == input) return;
+	set_player_direction(&player1, input);
+}
+
+void add_trail(player_t* player)
+{
+	player->trail[player->trail_index].x = player->x;
+	player->trail[player->trail_index].y = player->y;
+	player->trail_index = (player->trail_index + 1) % 400; // Wrap back to beginning of loop
+}
+
+void draw_trail(player_t* player)
+{
+	for(int i = 0; i < 400; i++)
+	{
+		if(player->trail[i].x == 0 && player->trail[i].y == 0) continue;
+		lcd_draw_image(player->trail[i].x,
+										trail_width,
+										player->trail[i].y,
+										trail_height,
+										trail_bitmap,
+										player->fColor,
+										player->bColor);
+	}
+}
+
+bool check_collision(player_t* player, player_t* ref)
+{
+	calc_player_bounds(player);
+	if(check_world_collision(player))
+	{
+		return true;
+	}
+	if(check_trail_collision(player, ref))
+	{
+		return true;
+	}
+}
+
+bool check_world_collision(player_t* player)
+{
+	// Check if player hit edges of screen
+	if(player->front_x <= 0 ||
+		player->front_x >= COLS ||
+		player->front_y <= 0 ||
+		player->front_y >= ROWS)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool check_trail_collision(player_t* player, player_t* ref)
+{
+	for(int i = 0; i < 400; i++)
+	{
+		if(ref->trail[i].x == 0 && ref->trail[i].y == 0) continue;
+		if(player->front_x > ref->trail[i].x - 4 &&
+			player->front_x < ref->trail[i].x + 4 &&
+			player->front_y > ref->trail[i].y - 4 &&
+			player->front_y < ref->trail[i].y + 4)
+		{
+			return true;
+		}
+	}
+}
+
+
+void update_p1()
+{
+	move_player(&player1);
+	add_trail(&player1);
+	// Check_Collision...
 }

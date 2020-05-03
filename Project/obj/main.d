@@ -16,7 +16,7 @@
 .\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\errno.h
 .\obj\main.o: ..\peripherals\include\lcd.h
-.\obj\main.o: ..\peripherals\include\lcd_images.h
+.\obj\main.o: lcd_images.h
 .\obj\main.o: ..\drivers\include\timers.h
 .\obj\main.o: ..\peripherals\include\ps2.h
 .\obj\main.o: ..\drivers\include\adc.h

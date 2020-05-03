@@ -412,6 +412,16 @@
               <FileType>5</FileType>
               <FilePath>.\project_interrupts.h</FilePath>
             </File>
+            <File>
+              <FileName>lcd_images.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lcd_images.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_images.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lcd_images.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
