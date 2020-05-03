@@ -24,6 +24,44 @@ static bool verify_base_addr(uint32_t base_addr)
    }
 }
 
+/****************************************************************************
+ * Return the GPIO IRQ Number
+ ****************************************************************************/
+IRQn_Type timer_get_irq_num(uint32_t base)
+{
+   switch(base)
+   {
+     case TIMER0_BASE:
+     {
+       return TIMER0A_IRQn;
+     }
+     case TIMER1_BASE:
+     {
+       return TIMER1A_IRQn;
+     }
+     case TIMER2_BASE:
+     {
+        return TIMER2A_IRQn;
+     }
+     case TIMER3_BASE:
+     {
+       return TIMER3A_IRQn;
+     }
+     case TIMER4_BASE:
+     {
+       return TIMER4A_IRQn;
+     }
+     case TIMER5_BASE:
+     {
+       return TIMER5A_IRQn;
+     }
+     default:
+     {
+       return 0;
+     }
+   }
+}
+
 //*****************************************************************************
 // Returns the RCGC and PR masks for a given TIMER base address
 //*****************************************************************************
@@ -128,7 +166,6 @@ bool gp_timer_wait(uint32_t base_addr, uint32_t ticks)
 //
 //The function returns true if the base_addr is a valid general purpose timer
 //*****************************************************************************
-bool gp_timer_config_32(uint32_t base_addr, uint32_t mode, bool count_up, bool enable_interrupts)
 bool gp_timer_config_32(uint32_t base_addr, uint32_t mode, uint32_t time_count, bool count_up, bool enable_interrupts)
 {
   uint32_t timer_rcgc_mask;
@@ -150,14 +187,9 @@ bool gp_timer_config_32(uint32_t base_addr, uint32_t mode, uint32_t time_count, 
   // Wait for the timer to turn on
   while( (SYSCTL->PRTIMER & timer_pr_mask) == 0) {};
   
-  // Type cast the base address to a TIMER0_Type struct
-  gp_timer = (TIMER0_Type *)base_addr;
-    
   //*********************    
   // ADD CODE
   //*********************
-		
-	gp_timer->CTL &= ~(TIMER_CTL_TAEN | TIMER_CTL_TBEN);
 
   // Type cast the base address to a TIMER0_Type struct
   gp_timer = (TIMER0_Type *)base_addr;
@@ -167,15 +199,6 @@ bool gp_timer_config_32(uint32_t base_addr, uint32_t mode, uint32_t time_count, 
   
   // Set the timer to be a 32-bit timer
   gp_timer->CFG = TIMER_CFG_32_BIT_TIMER;
-	
-	gp_timer->TAMR &= ~TIMER_TAMR_TAMR_M;
-	gp_timer->TAMR |= mode;
-	
-	gp_timer->TAMR &= ~TIMER_TAMR_TACDIR;
-	gp_timer->TAMR |= count_up ? TIMER_TAMR_TACDIR : 0;
-	
-	gp_timer->IMR &= ~TIMER_IMR_TATOIM;
-	gp_timer->IMR |= enable_interrupts ? TIMER_IMR_TATOIM : 0;
       
   // Clear the timer mode 
   gp_timer->TAMR &= ~TIMER_TAMR_TAMR_M;
