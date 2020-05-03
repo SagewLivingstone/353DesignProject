@@ -101,17 +101,17 @@
         <yPos>-1</yPos>
       </MaxPosition>
       <NormalPosition>
-        <Top>-475</Top>
-        <Left>1822</Left>
-        <Right>2849</Right>
-        <Bottom>268</Bottom>
+        <Top>-757</Top>
+        <Left>1534</Left>
+        <Right>2561</Right>
+        <Bottom>-14</Bottom>
       </NormalPosition>
     </WindowPosition>
     <MDIClientArea>
       <RegID>0</RegID>
       <MDITabState>
-        <Len>963</Len>
-        <Data>0100000004000000010000000100000001000000010000000000000002000000000000000100000001000000000000002800000028000000010000000800000004000000010000003E433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C647269766572735C635C6164632E6300000000056164632E6300000000FFDC7800FFFFFFFF41433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C647269766572735C635C74696D6572732E63000000000874696D6572732E6300000000BECEA100FFFFFFFF3D433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C6D61696E2E6300000000066D61696E2E6300000000F0A0A100FFFFFFFF4E433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C70726F6A6563745F68617264776172655F696E69742E63000000001770726F6A6563745F68617264776172655F696E69742E6300000000BCA8E100FFFFFFFF4B433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C70726F6A6563745F696E74657272757074732E63000000001470726F6A6563745F696E74657272757074732E63000000009CC1B600FFFFFFFF4B433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C70726F6A6563745F696E74657272757074732E68000000001470726F6A6563745F696E74657272757074732E6800000000D9ADC200FFFFFFFF48433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C7065726970686572616C735C696E636C7564655C7073322E6800000000067073322E682A00000000D9ADC200FFFFFFFF42433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C7065726970686572616C735C635C7073322E6300000000057073322E6300000000D9ADC200FFFFFFFF0100000010000000C5D4F200FFDC7800BECEA100F0A0A100BCA8E1009CC1B600F7B88600D9ADC200A5C2D700B3A6BE00EAD6A300F6FA7D00B5E99D005FC3CF00C1838300CACAD5000100000000000000020000004E06000001FDFFFF550A00002D010000</Data>
+        <Len>1630</Len>
+        <Data>0100000004000000010000000100000001000000010000000000000002000000000000000100000001000000000000002800000028000000010000000F00000002000000010000003D433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C6D61696E2E6300000000066D61696E2E6300000000F0A0A100FFFFFFFF4E433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C70726F6A6563745F68617264776172655F696E69742E63000000001770726F6A6563745F68617264776172655F696E69742E6300000000BCA8E100FFFFFFFF4B433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C70726F6A6563745F696E74657272757074732E63000000001570726F6A6563745F696E74657272757074732E632A000000009CC1B600FFFFFFFF4B433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C70726F6A6563745F696E74657272757074732E68000000001470726F6A6563745F696E74657272757074732E6800000000D9ADC200FFFFFFFF48433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C7065726970686572616C735C696E636C7564655C7073322E6800000000057073322E6800000000D9ADC200FFFFFFFF42433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C7065726970686572616C735C635C7073322E6300000000057073322E6300000000D9ADC200FFFFFFFF3E433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C647269766572735C635C6932632E6300000000056932632E6300000000A5C2D700FFFFFFFF44433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C647269766572735C635C6770696F5F706F72742E63000000000B6770696F5F706F72742E6300000000D9ADC200FFFFFFFF3E433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C647269766572735C635C6164632E6300000000056164632E6300000000B3A6BE00FFFFFFFF3F433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C647269766572735C635C756172742E630000000006756172742E6300000000EAD6A300FFFFFFFF41433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C647269766572735C635C74696D6572732E63000000000874696D6572732E6300000000F6FA7D00FFFFFFFF3D433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C50726F6A6563745C6D61696E2E6800000000066D61696E2E6800000000B5E99D00FFFFFFFF4B433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C7065726970686572616C735C635C6C61756E63687061645F696F2E63000000000E6C61756E63687061645F696F2E63000000005FC3CF00FFFFFFFF50433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C7065726970686572616C735C696E636C7564655C696F5F657870616E6465722E68000000000D696F5F657870616E6465722E6800000000C1838300FFFFFFFF45433A5C55736572735C4D61785C446F63756D656E74735C4769744875625C33353344657369676E50726F6A6563745C7065726970686572616C735C635C656570726F6D2E630000000008656570726F6D2E6300000000CACAD500FFFFFFFF0100000010000000C5D4F200FFDC7800BECEA100F0A0A100BCA8E1009CC1B600F7B88600D9ADC200A5C2D700B3A6BE00EAD6A300F6FA7D00B5E99D005FC3CF00C1838300CACAD5000100000000000000020000004E06000001FDFFFF550A00002D010000</Data>
       </MDITabState>
     </MDIClientArea>
     <ViewEx>
@@ -526,7 +526,7 @@
         <IsActivated>0</IsActivated>
         <MRUWidth>32767</MRUWidth>
         <PinState>0</PinState>
-        <RecentFrameAlignment>4096</RecentFrameAlignment>
+        <RecentFrameAlignment>32768</RecentFrameAlignment>
         <RecentRowIndex>0</RecentRowIndex>
         <RectRecentDocked>
           <Len>16</Len>
@@ -1166,7 +1166,7 @@
         <IsActivated>0</IsActivated>
         <MRUWidth>32767</MRUWidth>
         <PinState>0</PinState>
-        <RecentFrameAlignment>4096</RecentFrameAlignment>
+        <RecentFrameAlignment>32768</RecentFrameAlignment>
         <RecentRowIndex>0</RecentRowIndex>
         <RectRecentDocked>
           <Len>16</Len>
@@ -1186,7 +1186,7 @@
         <IsActivated>0</IsActivated>
         <MRUWidth>32767</MRUWidth>
         <PinState>0</PinState>
-        <RecentFrameAlignment>4096</RecentFrameAlignment>
+        <RecentFrameAlignment>32768</RecentFrameAlignment>
         <RecentRowIndex>0</RecentRowIndex>
         <RectRecentDocked>
           <Len>16</Len>
@@ -1246,7 +1246,7 @@
         <IsActivated>0</IsActivated>
         <MRUWidth>32767</MRUWidth>
         <PinState>0</PinState>
-        <RecentFrameAlignment>4096</RecentFrameAlignment>
+        <RecentFrameAlignment>32768</RecentFrameAlignment>
         <RecentRowIndex>0</RecentRowIndex>
         <RectRecentDocked>
           <Len>16</Len>
@@ -1266,7 +1266,7 @@
         <IsActivated>0</IsActivated>
         <MRUWidth>32767</MRUWidth>
         <PinState>0</PinState>
-        <RecentFrameAlignment>4096</RecentFrameAlignment>
+        <RecentFrameAlignment>32768</RecentFrameAlignment>
         <RecentRowIndex>0</RecentRowIndex>
         <RectRecentDocked>
           <Len>16</Len>
@@ -1862,30 +1862,12 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>4</ActiveTab>
-      <Doc>
-        <Name>..\drivers\c\adc.c</Name>
-        <ColumnNumber>0</ColumnNumber>
-        <TopLine>70</TopLine>
-        <CurrentLine>1</CurrentLine>
-        <Folding>1</Folding>
-        <ContractedFolders></ContractedFolders>
-        <PaneID>0</PaneID>
-      </Doc>
-      <Doc>
-        <Name>..\drivers\c\timers.c</Name>
-        <ColumnNumber>29</ColumnNumber>
-        <TopLine>49</TopLine>
-        <CurrentLine>30</CurrentLine>
-        <Folding>1</Folding>
-        <ContractedFolders></ContractedFolders>
-        <PaneID>0</PaneID>
-      </Doc>
+      <ActiveTab>2</ActiveTab>
       <Doc>
         <Name>.\main.c</Name>
-        <ColumnNumber>0</ColumnNumber>
+        <ColumnNumber>12</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>1</CurrentLine>
+        <CurrentLine>40</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -1894,43 +1876,124 @@
         <Name>.\project_hardware_init.c</Name>
         <ColumnNumber>0</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>1</CurrentLine>
+        <CurrentLine>26</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>.\project_interrupts.c</Name>
-        <ColumnNumber>51</ColumnNumber>
+        <ColumnNumber>0</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>17</CurrentLine>
+        <CurrentLine>26</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>.\project_interrupts.h</Name>
-        <ColumnNumber>12</ColumnNumber>
+        <ColumnNumber>71</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>33</CurrentLine>
+        <CurrentLine>16</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
-        <Name>C:\Users\Max\Documents\GitHub\353DesignProject\peripherals\include\ps2.h</Name>
-        <ColumnNumber>11</ColumnNumber>
-        <TopLine>20</TopLine>
-        <CurrentLine>44</CurrentLine>
+        <Name>..\peripherals\include\ps2.h</Name>
+        <ColumnNumber>0</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>36</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\peripherals\c\ps2.c</Name>
-        <ColumnNumber>59</ColumnNumber>
+        <ColumnNumber>15</ColumnNumber>
+        <TopLine>23</TopLine>
+        <CurrentLine>59</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>..\drivers\c\i2c.c</Name>
+        <ColumnNumber>79</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>80</CurrentLine>
+        <CurrentLine>187</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>..\drivers\c\gpio_port.c</Name>
+        <ColumnNumber>2</ColumnNumber>
+        <TopLine>388</TopLine>
+        <CurrentLine>427</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>..\drivers\c\adc.c</Name>
+        <ColumnNumber>0</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>1</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>..\drivers\c\uart.c</Name>
+        <ColumnNumber>0</ColumnNumber>
+        <TopLine>139</TopLine>
+        <CurrentLine>1</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>..\drivers\c\timers.c</Name>
+        <ColumnNumber>63</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>28</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>.\main.h</Name>
+        <ColumnNumber>80</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>20</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>..\peripherals\c\launchpad_io.c</Name>
+        <ColumnNumber>35</ColumnNumber>
+        <TopLine>149</TopLine>
+        <CurrentLine>197</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>C:\Users\Max\Documents\GitHub\353DesignProject\peripherals\include\io_expander.h</Name>
+        <ColumnNumber>0</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>25</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+      <Doc>
+        <Name>..\peripherals\c\eeprom.c</Name>
+        <ColumnNumber>41</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>28</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
