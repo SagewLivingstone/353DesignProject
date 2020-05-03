@@ -34,6 +34,7 @@
 #include "ps2.h"
 #include "launchpad_io.h"
 #include "serial_debug.h"
+#include "ft6x06.h"
 #include "lcd_images.h"
 
 #include "project_interrupts.h"

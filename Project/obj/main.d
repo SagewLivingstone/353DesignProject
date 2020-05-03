@@ -25,6 +25,8 @@
 .\obj\main.o: ..\drivers\include\pc_buffer.h
 .\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\main.o: ..\drivers\include\uart.h
+.\obj\main.o: ..\peripherals\include\ft6x06.h
+.\obj\main.o: ..\drivers\include\i2c.h
 .\obj\main.o: project_interrupts.h
 .\obj\main.o: main.h
 .\obj\main.o: project_hardware_init.h

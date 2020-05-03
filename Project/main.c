@@ -49,6 +49,7 @@ void init_game()
 void game_loop()
 {
 	uint16_t trail_decimator = 0;
+	uint16_t touch_count = 0;
 	
 	init_game();
 	
@@ -72,9 +73,22 @@ void game_loop()
 								player1.bColor);
 	}
 	
-	printf("Game over! Tap screen to restart\n\r");
+	printf("Game over! Touch screen with two fingers to restart\n\r");
 	
 	// Wait for screen tap
+	while(1)
+	{
+		if(ft6x06_read_td_status())
+		{
+			if(ft6x06_read_td_status() == 2) touch_count++;
+		}
+		else
+		{
+			touch_count = 0;
+		}
+		if(touch_count > 40) break;
+	};	
+	printf("Restarting game...\n\r");
 }
 
 //*****************************************************************************
