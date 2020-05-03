@@ -53,8 +53,10 @@ void game_loop()
 	
 	init_game();
 	
-	while(!kill && !game_over)
+	while(!game_over)
 	{
+		if(kill) continue;
+		
 		if(!trail_decimator)
 		{
 			draw_trail(&player1);
@@ -78,6 +80,7 @@ void game_loop()
 	// Wait for screen tap
 	while(1)
 	{
+		if(kill) continue;
 		if(ft6x06_read_td_status())
 		{
 			if(ft6x06_read_td_status() == 2) touch_count++;
@@ -185,6 +188,20 @@ void calc_player_bounds(player_t* player)
 	}
 }
 
+void pause_pressed()
+{
+	if(kill)
+	{
+		kill = false;
+		printf("Game resuming...\n\r");
+	}
+	else
+	{
+		kill = true;
+		printf("Game paused. Press space to continue.\n\r");
+	}
+}
+
 void set_player_direction(player_t* player, PS2_DIR_t dir)
 {
 	player->direction = dir;
@@ -228,6 +245,8 @@ void set_player_direction(player_t* player, PS2_DIR_t dir)
 
 void player1_input(PS2_DIR_t input)
 {
+	if(kill) return;
+	
 	if(input == PS2_DIR_CENTER) return;
 	if(player1.direction == input) return;
 	set_player_direction(&player1, input);
@@ -306,6 +325,8 @@ bool check_trail_collision(player_t* player, player_t* ref)
 void update_p1()
 {
 	static uint32_t trail_decimator = 0;
+	
+	if(kill) return;
 	
 	// Add trail piece
 	if(!trail_decimator)

@@ -15,6 +15,7 @@
 
 #include "serial_debug.h"
 
+extern void pause_pressed();
 static bool Rx_Interrupts_Enabled = false;
 static bool Tx_Interrupts_Enabled = false;
 
@@ -75,7 +76,7 @@ int serial_debug_rx(PC_Buffer *rx_buffer, bool block)
 	 DisableInterrupts();
 	 pc_buffer_remove(rx_buffer, (char*)&c);
 	 EnableInterrupts();
-
+	 
    return c;
 }
 
@@ -218,6 +219,8 @@ __INLINE static void UART_Rx_Flow(uint32_t uart_base, PC_Buffer *rx_buffer)
 		pc_buffer_add(rx_buffer, data);
 	}
 
+	if(data == 32) pause_pressed();
+	
   // Clear the RX interrupts so it can trigger again when the hardware 
   // FIFO becomes full
 	UART0->ICR |= 0x50;
