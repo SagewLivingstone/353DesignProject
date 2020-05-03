@@ -30,8 +30,10 @@ void init_hardware()
 	ps2_initialize();
 	ft6x06_init();
 	io_expander_init();
+	lp_io_init();
 	
-	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 50000000, false, true); // Status LED Timer
+	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 5000000, false, true); // Status LED Timer
+	gp_timer_config_32(TIMER3_BASE,TIMER_TAMR_TAMR_1_SHOT, 500000, false, true); // Status LED Timer
 	gp_timer_config_32(TIMER2_BASE,TIMER_TAMR_TAMR_PERIOD, 833334, false, true); // Game Tick Timer 60Hz
 	gp_timer_config_32(TIMER4_BASE,TIMER_TAMR_TAMR_PERIOD, 500000, false, true); // ADC Check Timer
 	printf("Initializing Done\n\r");

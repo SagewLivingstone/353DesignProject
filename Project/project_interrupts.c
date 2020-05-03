@@ -29,6 +29,7 @@ static volatile PS2_DIR_t PS2_DIR = PS2_DIR_CENTER;
 
 static const uint16_t PS2_UPPER_VAL = 2978; // 2.40V value
 static const uint16_t PS2_LOWER_VAL = 1055; // 0.85V value
+static volatile uint16_t duty_cycle = 70;
 
 
 //*****************************************************************************
@@ -59,6 +60,30 @@ PS2_DIR_t ps2_get_direction(void)
 
 void TIMER1A_Handler(void)
 {
+	static bool count_up = true;
+	if(count_up)
+	{
+		if(duty_cycle >= DUTY_CYCLE_MAX)
+		{
+			count_up = false;
+		}
+		else
+		{
+			duty_cycle += DUTY_CYCLE_INTERVAL;
+		}
+	}
+	else
+	{
+		if(duty_cycle <= 0)
+		{
+			count_up = true;
+		}
+		else
+		{
+			duty_cycle -= DUTY_CYCLE_INTERVAL;
+		}
+	}
+	
 	// Clear the interrupt
 	TIMER1->ICR |= TIMER_ICR_TATOCINT;
 }
@@ -71,6 +96,26 @@ void TIMER2A_Handler(void)
 	
 	// Clear the interrupt
 	TIMER2->ICR |= TIMER_ICR_TATOCINT;
+}
+
+void TIMER3A_Handler(void)
+{
+	static bool led_on = false;
+	if(led_on)
+	{
+		lp_io_clear_pin(BLUE_BIT);
+		led_on = false;
+		gp_timer_config_32(TIMER3_BASE,TIMER_TAMR_TAMR_1_SHOT, 5000 * (100 - duty_cycle), false, true); // Status LED Timer
+	}
+	else
+	{
+		lp_io_set_pin(BLUE_BIT);
+		led_on = true;
+		gp_timer_config_32(TIMER3_BASE,TIMER_TAMR_TAMR_1_SHOT, 5000 * (duty_cycle), false, true); // Status LED Timer
+	}
+	
+	// Clear the interrupt
+	TIMER3->ICR |= TIMER_ICR_TATOCINT;
 }
 
 // Timer for setting of PS2 ADC
