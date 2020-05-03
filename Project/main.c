@@ -25,19 +25,33 @@
 player_t player1;
 player_t player2;
 
-void game_loop()
+bool game_over;
+bool kill = false;
+
+void init_game()
 {
-	bool kill = false;
-	uint16_t trail_decimator = 0;
+	lcd_clear_screen(LCD_COLOR_BLACK);
 	
+	// Setup player 1
 	player1.x = 30;
 	player1.y = 30;
 	player1.fColor = LCD_COLOR_CYAN;
 	player1.bColor = LCD_COLOR_BLACK;
-	set_player_direction(&player1, PS2_DIR_UP);
+	set_player_direction(&player1, PS2_DIR_RIGHT);
 	
+	// Setup player 2
+	//...
 	printf("Game beginning\n\r");
-	while(!kill)
+	game_over = false;
+}
+
+void game_loop()
+{
+	uint16_t trail_decimator = 0;
+	
+	init_game();
+	
+	while(!kill && !game_over)
 	{
 		if(!trail_decimator)
 		{
@@ -136,18 +150,18 @@ void calc_player_bounds(player_t* player)
 	{
 		case PS2_DIR_UP:
 			player->front_x = player->x;
-			player->front_y = player->y - player->height;
+			player->front_y = player->y - (player->height / 2);
 			break;
 		case PS2_DIR_DOWN:
 			player->front_x = player->x;
-			player->front_y = player->y + player->height;
+			player->front_y = player->y + (player->height / 2);
 			break;
 		case PS2_DIR_LEFT:
-			player->front_x = player->x - player->width;
+			player->front_x = player->x - (player->width / 2);
 			player->front_y = player->y;
 			break;
 		case PS2_DIR_RIGHT:
-			player->front_x = player->x + player->width;
+			player->front_x = player->x + (player->width / 2);
 			player->front_y = player->y;
 			break;
 		default: break;
@@ -234,8 +248,10 @@ bool check_collision(player_t* player, player_t* ref)
 	}
 	if(check_trail_collision(player, ref))
 	{
+		//printf("Collision\n\r");
 		return true;
 	}
+	return false;
 }
 
 bool check_world_collision(player_t* player)
@@ -257,20 +273,33 @@ bool check_trail_collision(player_t* player, player_t* ref)
 	for(i = 0; i < TRAIL_MAX_SIZE; i++)
 	{
 		if(ref->trail[i].x == 0 && ref->trail[i].y == 0) continue;
-		if(player->front_x > ref->trail[i].x - 4 &&
-			player->front_x < ref->trail[i].x + 4 &&
-			player->front_y > ref->trail[i].y - 4 &&
-			player->front_y < ref->trail[i].y + 4)
+		if(player->front_x > ref->trail[i].x - 2 &&
+			player->front_x < ref->trail[i].x + 2 &&
+			player->front_y > ref->trail[i].y - 2 &&
+			player->front_y < ref->trail[i].y + 2)
 		{
+			printf("Collided with %d %d\n\r", ref->trail[i].y, ref->trail[i].y);
 			return true;
 		}
 	}
+	return false;
 }
 
 
 void update_p1()
 {
+	static uint32_t trail_decimator = 0;
+	
+	// Add trail piece
+	if(!trail_decimator)
+		add_trail(&player1);
+	trail_decimator = (trail_decimator + 1) % 4;
+	
 	move_player(&player1);
-	add_trail(&player1);
+	if(check_collision(&player1, &player2))
+	{
+		printf("Collision!\n\r");
+		game_over = true;
+	}
 	// Check_Collision...
 }
