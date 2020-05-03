@@ -34,6 +34,11 @@
 // Define the base addresses for the GPIO port that is connected to the PS2 Joystick
 #define   PS2_GPIO_BASE    0x40024000
 
+#define   PS2_X_DIR_PIN      				PE3
+#define   PS2_X_DIR_CH							1
+#define   PS2_Y_DIR_PIN      				PE2
+#define   PS2_Y_DIR_CH							0
+
 // ADD CODE
 // Define which bit number ( 0 through 7) each signal is connected to on the GPIO port.
 // This bit number is NOT the value listed in the Pin Number column of the datasheet.  
