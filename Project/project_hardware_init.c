@@ -22,5 +22,12 @@
 
 #include "main.h"
 
-
+void init_hardware()
+{
+	printf("Initializing Hardware...\n\r");
+	
+	
+	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 50000000, false, true); // Status LED timer
+	printf("Initializing Done\n\r");
+}
 

@@ -24,5 +24,6 @@
 
 #include "main.h"
 
+void TIMER1A_Handler(void);
 
 #endif

@@ -24,7 +24,13 @@
 #include "project_interrupts.h"
 
 
-
+void TIMER1A_Handler(void)
+{
+	printf("LED\n\r");
+	
+	// Clear the interrupt
+	TIMER1->ICR |= TIMER_ICR_TATOCINT;
+}
 
 
 

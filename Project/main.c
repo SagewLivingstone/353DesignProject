@@ -49,6 +49,7 @@ void initializeBoard(void)
   
   DisableInterrupts();
   init_serial_debug(true, true);
+	init_hardware();
   EnableInterrupts();
 }
 //*****************************************************************************
