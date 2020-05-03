@@ -44,9 +44,27 @@ void EnableInterrupts(void)
 
 //*****************************************************************************
 //*****************************************************************************
+void initializeBoard(void)
+{
+  
+  DisableInterrupts();
+  init_serial_debug(true, true);
+	init_hardware();
+  EnableInterrupts();
+}
+//*****************************************************************************
+//*****************************************************************************
 int 
 main(void)
 {
-
-    while(1){};
+	initializeBoard();
+	
+	printf("****************************\n\r");
+	printf("**** Light Bike Game  ******\n\r");
+	printf("****      by:         ******\n\r");
+	printf("**** Sage Livingstone ******\n\r");
+	printf("****   and Max Klug   ******\n\r");
+	printf("****************************\n\r");
+	
+	while(1){};
 }

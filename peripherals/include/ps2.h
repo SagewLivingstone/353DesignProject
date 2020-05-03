@@ -56,9 +56,17 @@ typedef enum{
 
 #define PS2_SAMPLE_TICKS						50000
 
+<<<<<<< HEAD
 #define ADC_LOW_THRESHOLD		0x0600
 #define ADC_MID_THRESHOLD	  0x0800
 #define ADC_HIGH_THRESHOLD	0x0A00
+=======
+#define   PS2_X_DIR_PIN      				PE3
+#define   PS2_X_DIR_CH							1
+#define   PS2_Y_DIR_PIN      				PE2
+#define   PS2_Y_DIR_CH							0
+
+>>>>>>> master
 // ADD CODE
 // Define which bit number ( 0 through 7) each signal is connected to on the GPIO port.
 // This bit number is NOT the value listed in the Pin Number column of the datasheet.  

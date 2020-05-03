@@ -23,8 +23,72 @@
 #include "main.h"
 #include "project_interrupts.h"
 
+static volatile uint16_t PS2_X_DATA = 0;
+static volatile uint16_t PS2_Y_DATA = 0;
+static volatile PS2_DIR_t PS2_DIR = PS2_DIR_CENTER;
+
+static const uint16_t PS2_UPPER_VAL = 2978; // 2.40V value
+static const uint16_t PS2_LOWER_VAL = 1055; // 0.85V value
 
 
+//*****************************************************************************
+// Returns the most current direction that was pressed.
+//*****************************************************************************
+PS2_DIR_t ps2_get_direction(void)
+{
+	// Check PS2 data against thresholds
+	if(PS2_X_DATA > PS2_UPPER_VAL)
+	{
+		return PS2_DIR_LEFT;
+	}
+	if(PS2_X_DATA < PS2_LOWER_VAL)
+	{
+		return PS2_DIR_RIGHT;
+	}
+	if(PS2_Y_DATA > PS2_UPPER_VAL)
+	{
+		return PS2_DIR_UP;
+	}
+	if(PS2_Y_DATA < PS2_LOWER_VAL)
+	{
+		return PS2_DIR_DOWN;
+	}
+	return PS2_DIR_CENTER;
+}
 
 
+void TIMER1A_Handler(void)
+{
+	// Clear the interrupt
+	TIMER1->ICR |= TIMER_ICR_TATOCINT;
+}
+
+void TIMER2A_Handler(void)
+{
+	// UPDATE GAME STATE
+	
+	// Clear the interrupt
+	TIMER1->ICR |= TIMER_ICR_TATOCINT;
+}
+
+void TIMER4A_Handler(void)
+{
+	ADC0->PSSI |= ADC_PSSI_SS2;
+	
+	// Clear the interrupt
+	TIMER4->ICR |= TIMER_ICR_TATOCINT; 
+}
+
+//*****************************************************************************
+// ADC0 SS2 ISR
+//*****************************************************************************
+void ADC0SS2_Handler(void)
+{
+	PS2_X_DATA = ADC0->SSFIFO2;
+	PS2_Y_DATA = ADC0->SSFIFO2;
+	PS2_DIR = ps2_get_direction();
+	
+  // Clear the interrupt
+  ADC0->ISC |= ADC_ISC_IN2;
+}
 

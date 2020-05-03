@@ -129,6 +129,7 @@ bool gp_timer_wait(uint32_t base_addr, uint32_t ticks)
 //The function returns true if the base_addr is a valid general purpose timer
 //*****************************************************************************
 bool gp_timer_config_32(uint32_t base_addr, uint32_t mode, bool count_up, bool enable_interrupts)
+bool gp_timer_config_32(uint32_t base_addr, uint32_t mode, uint32_t time_count, bool count_up, bool enable_interrupts)
 {
   uint32_t timer_rcgc_mask;
   uint32_t timer_pr_mask;
@@ -157,6 +158,14 @@ bool gp_timer_config_32(uint32_t base_addr, uint32_t mode, bool count_up, bool e
   //*********************
 		
 	gp_timer->CTL &= ~(TIMER_CTL_TAEN | TIMER_CTL_TBEN);
+
+  // Type cast the base address to a TIMER0_Type struct
+  gp_timer = (TIMER0_Type *)base_addr;
+    
+  // Stop the timers
+  gp_timer->CTL &= ~( TIMER_CTL_TAEN | TIMER_CTL_TBEN);
+  
+  // Set the timer to be a 32-bit timer
   gp_timer->CFG = TIMER_CFG_32_BIT_TIMER;
 	
 	gp_timer->TAMR &= ~TIMER_TAMR_TAMR_M;
@@ -167,6 +176,40 @@ bool gp_timer_config_32(uint32_t base_addr, uint32_t mode, bool count_up, bool e
 	
 	gp_timer->IMR &= ~TIMER_IMR_TATOIM;
 	gp_timer->IMR |= enable_interrupts ? TIMER_IMR_TATOIM : 0;
+      
+  // Clear the timer mode 
+  gp_timer->TAMR &= ~TIMER_TAMR_TAMR_M;
+  
+  // Set the mode
+  gp_timer->TAMR |= mode;
     
+    // Set the timer direction.  count_up: 0 for down, 1 for up.
+  gp_timer->TAMR &= ~TIMER_TAMR_TACDIR;
+  
+  if( count_up )
+  {
+    // Set the direction bit
+    gp_timer->TAMR |= TIMER_TAMR_TACDIR;
+  }
+ 
+  gp_timer->TAILR = time_count;
+  
+  if( enable_interrupts )
+  {
+    // Clear the status flag so the timer is ready the next time it is run. 
+    gp_timer->ICR|= TIMER_ICR_TATOCINT;
+  	gp_timer->IMR |= TIMER_IMR_TATOIM;
+    NVIC_SetPriority(timer_get_irq_num(base_addr),1);
+    NVIC_EnableIRQ(timer_get_irq_num(base_addr));
+      
+  }
+  else
+  {
+  	gp_timer->IMR &= ~TIMER_IMR_TATOIM;
+  }
+    
+  // Turn the timer on
+  gp_timer->CTL      |=   TIMER_CTL_TAEN ;
+  
   return true;  
 }
