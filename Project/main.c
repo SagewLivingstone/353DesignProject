@@ -21,8 +21,98 @@
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "main.h"
+//Debounce pushbuttons
+typedef enum 
+{
+  DEBOUNCE_ONE,
+  DEBOUNCE_1ST_ZERO,
+  DEBOUNCE_2ND_ZERO,
+  DEBOUNCE_PRESSED
+} DEBOUNCE_STATES;
 
+bool sw2_debounce_fsm(void)
+{
+  static DEBOUNCE_STATES state = DEBOUNCE_ONE;
+  bool pin_logic_level;
+  
+  pin_logic_level = lp_io_read_pin(SW2_BIT);
+  
+  switch (state)
+  {
+    case DEBOUNCE_ONE:
+    {
+      if(pin_logic_level)
+      {
+        state = DEBOUNCE_ONE;
+      }
+      else
+      {
+        state = DEBOUNCE_1ST_ZERO;
+      }
+      break;
+    }
+    case DEBOUNCE_1ST_ZERO:
+    {
+      if(pin_logic_level)
+      {
+        state = DEBOUNCE_ONE;
+      }
+      else
+      {
+        state = DEBOUNCE_2ND_ZERO;
+      }
+      break;
+    }
+    case DEBOUNCE_2ND_ZERO:
+    {
+      if(pin_logic_level)
+      {
+        state = DEBOUNCE_ONE;
+      }
+      else
+      {
+        state = DEBOUNCE_PRESSED;
+      }
+      break;
+    }
+    case DEBOUNCE_PRESSED:
+    {
+      if(pin_logic_level)
+      {
+        state = DEBOUNCE_ONE;
+      }
+      else
+      {
+        state = DEBOUNCE_PRESSED;
+      }
+      break;
+    }
+    default:
+    {
+      while(1){};
+    }
+  }
+  
+  if(state == DEBOUNCE_2ND_ZERO )
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
 
+void debounce_wait(void) 
+{
+  int i = 10000;
+  // Delay
+  while(i > 0)
+  {
+    i--;
+  }
+}
+  
 
 //*****************************************************************************
 //*****************************************************************************
