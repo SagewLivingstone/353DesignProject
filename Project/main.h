@@ -37,6 +37,7 @@
 #include "ft6x06.h"
 #include "lcd_images.h"
 #include "io_expander.h"
+#include "eeprom.h"
 
 #include "project_interrupts.h"
 #include "project_hardware_init.h"
@@ -101,6 +102,8 @@ void red_win();
 void blue_win();
 void draw_restart();
 void end_game();
+void write_high_score(uint8_t score);
+uint8_t get_high_score();
 
 
 #endif

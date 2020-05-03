@@ -1865,27 +1865,27 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>.\main.c</Name>
-        <ColumnNumber>118</ColumnNumber>
-        <TopLine>342</TopLine>
-        <CurrentLine>357</CurrentLine>
+        <ColumnNumber>12</ColumnNumber>
+        <TopLine>365</TopLine>
+        <CurrentLine>380</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>.\main.h</Name>
-        <ColumnNumber>0</ColumnNumber>
-        <TopLine>78</TopLine>
-        <CurrentLine>100</CurrentLine>
+        <ColumnNumber>35</ColumnNumber>
+        <TopLine>82</TopLine>
+        <CurrentLine>105</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>.\project_hardware_init.c</Name>
-        <ColumnNumber>3</ColumnNumber>
-        <TopLine>15</TopLine>
-        <CurrentLine>36</CurrentLine>
+        <ColumnNumber>15</ColumnNumber>
+        <TopLine>16</TopLine>
+        <CurrentLine>33</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -1910,9 +1910,9 @@
       </Doc>
       <Doc>
         <Name>.\project_interrupts.c</Name>
-        <ColumnNumber>40</ColumnNumber>
-        <TopLine>97</TopLine>
-        <CurrentLine>114</CurrentLine>
+        <ColumnNumber>31</ColumnNumber>
+        <TopLine>16</TopLine>
+        <CurrentLine>24</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>

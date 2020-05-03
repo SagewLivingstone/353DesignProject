@@ -31,6 +31,8 @@ static const uint16_t PS2_UPPER_VAL = 2978; // 2.40V value
 static const uint16_t PS2_LOWER_VAL = 1055; // 0.85V value
 static volatile uint16_t duty_cycle = 70;
 
+extern uint16_t game_time;
+
 
 //*****************************************************************************
 // Returns the most current direction that was pressed.
@@ -61,6 +63,13 @@ PS2_DIR_t ps2_get_direction(void)
 void TIMER1A_Handler(void)
 {
 	static bool count_up = true;
+	static uint8_t timer_dec = 0;
+	if(!timer_dec)
+	{
+		game_time++;
+	}
+	timer_dec = (timer_dec + 1) % 10;
+	
 	if(count_up)
 	{
 		if(duty_cycle >= DUTY_CYCLE_MAX)

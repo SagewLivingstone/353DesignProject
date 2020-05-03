@@ -27,9 +27,12 @@ player_t player2;
 
 bool game_over = true;
 bool kill = false;
+uint8_t highscore;
+uint8_t game_time = 0;
 
 void init_game()
 {
+	uint8_t highscore = get_high_score();
 	lcd_clear_screen(LCD_COLOR_BLACK);
 	
 	// Setup player 1
@@ -43,7 +46,9 @@ void init_game()
 	// Setup player 2
 	//...
 	printf("Game beginning\n\r");
+	printf("Current high score: %d seconds\n\r", highscore);
 	game_over = false;
+	game_time = 0;
 	io_expander_write_reg(MCP23017_GPIOA_R, 0x00);
 }
 
@@ -366,6 +371,20 @@ void draw_restart()
 void end_game()
 {
 	game_over = true;
+	printf("Game Time: %d seconds\n\r", game_time);
+	if(game_time > highscore) write_high_score(game_time);
 	draw_restart();
 	io_expander_write_reg(MCP23017_GPIOA_R, 0xff);
+}
+
+void write_high_score(uint8_t score)
+{
+	eeprom_byte_write(I2C1_BASE, 256, score);
+}
+
+uint8_t get_high_score()
+{
+	uint8_t read_val;
+	eeprom_byte_read(I2C1_BASE, 256, &read_val);
+	return read_val;
 }

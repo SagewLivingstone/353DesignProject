@@ -30,20 +30,22 @@ Build target 'Project-F19'
 compiling main.c...
 lcd_images.h(36): warning:  #1-D: last line of file ends without a newline
   #endif
-main.h(99): warning:  #1295-D: Deprecated declaration pause_pressed - give arg types
+main.h(100): warning:  #1295-D: Deprecated declaration pause_pressed - give arg types
   void pause_pressed();
-main.h(100): warning:  #1295-D: Deprecated declaration red_win - give arg types
+main.h(101): warning:  #1295-D: Deprecated declaration red_win - give arg types
   void red_win();
-main.h(101): warning:  #1295-D: Deprecated declaration blue_win - give arg types
+main.h(102): warning:  #1295-D: Deprecated declaration blue_win - give arg types
   void blue_win();
-main.h(102): warning:  #1295-D: Deprecated declaration draw_restart - give arg types
+main.h(103): warning:  #1295-D: Deprecated declaration draw_restart - give arg types
   void draw_restart();
-main.h(103): warning:  #1295-D: Deprecated declaration end_game - give arg types
+main.h(104): warning:  #1295-D: Deprecated declaration end_game - give arg types
   void end_game();
-main.c: 6 warnings, 0 errors
+main.h(106): warning:  #1295-D: Deprecated declaration get_high_score - give arg types
+  uint8_t get_high_score();
+main.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=9832 RO-data=2852 RW-data=36 ZI-data=20212  
-".\obj\ece353_base_project.axf" - 0 Error(s), 6 Warning(s).
+Program Size: Code=10504 RO-data=2852 RW-data=40 ZI-data=20216  
+".\obj\ece353_base_project.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -72,7 +74,7 @@ Package Vendor: Keil
       Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
       Include file:  Device\Include\TM4C123\TM4C123.h
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

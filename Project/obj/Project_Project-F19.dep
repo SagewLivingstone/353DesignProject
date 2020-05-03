@@ -1,7 +1,7 @@
 Dependencies for Project 'Project', Target 'Project-F19': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
-F (.\main.c)(0x5EAF43A5)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include -I ..\include -I ..\drivers\include -I ..\peripherals\include --debug-I.\RTE\_Project-F19-IC:\Users\cocot\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\cocot\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="529" -D_RTE_ -DTM4C123GH6PM-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
-I (main.h)(0x5EAF3FED)
+F (.\main.c)(0x5EAF491D)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include -I ..\include -I ..\drivers\include -I ..\peripherals\include --debug-I.\RTE\_Project-F19-IC:\Users\cocot\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\cocot\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="529" -D_RTE_ -DTM4C123GH6PM-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
+I (main.h)(0x5EAF4809)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9B88EA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B88E8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9B88E8)
@@ -30,11 +30,12 @@ I (..\drivers\include\uart.h)(0x5EADC36E)
 I (..\peripherals\include\ft6x06.h)(0x5EADC36E)
 I (..\drivers\include\i2c.h)(0x5EADC36E)
 I (..\peripherals\include\io_expander.h)(0x5EADC36E)
+I (..\peripherals\include\eeprom.h)(0x5EADC36E)
 I (project_interrupts.h)(0x5EAF3E48)
 I (project_hardware_init.h)(0x5EAE1E29)
-F (.\main.h)(0x5EAF3FED)()
-F (.\project_hardware_init.c)(0x5EAF3E48)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include -I ..\include -I ..\drivers\include -I ..\peripherals\include --debug-I.\RTE\_Project-F19-IC:\Users\cocot\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\cocot\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="529" -D_RTE_ -DTM4C123GH6PM-o .\obj\project_hardware_init.o --omf_browse .\obj\project_hardware_init.crf --depend .\obj\project_hardware_init.d)
-I (main.h)(0x5EAF3FED)
+F (.\main.h)(0x5EAF4809)()
+F (.\project_hardware_init.c)(0x5EAF4753)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include -I ..\include -I ..\drivers\include -I ..\peripherals\include --debug-I.\RTE\_Project-F19-IC:\Users\cocot\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\cocot\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="529" -D_RTE_ -DTM4C123GH6PM-o .\obj\project_hardware_init.o --omf_browse .\obj\project_hardware_init.crf --depend .\obj\project_hardware_init.d)
+I (main.h)(0x5EAF4809)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9B88EA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B88E8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9B88E8)
@@ -63,11 +64,12 @@ I (..\drivers\include\uart.h)(0x5EADC36E)
 I (..\peripherals\include\ft6x06.h)(0x5EADC36E)
 I (..\drivers\include\i2c.h)(0x5EADC36E)
 I (..\peripherals\include\io_expander.h)(0x5EADC36E)
+I (..\peripherals\include\eeprom.h)(0x5EADC36E)
 I (project_interrupts.h)(0x5EAF3E48)
 I (project_hardware_init.h)(0x5EAE1E29)
 F (.\project_hardware_init.h)(0x5EAE1E29)()
-F (.\project_interrupts.c)(0x5EAF3E48)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include -I ..\include -I ..\drivers\include -I ..\peripherals\include --debug-I.\RTE\_Project-F19-IC:\Users\cocot\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\cocot\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="529" -D_RTE_ -DTM4C123GH6PM-o .\obj\project_interrupts.o --omf_browse .\obj\project_interrupts.crf --depend .\obj\project_interrupts.d)
-I (main.h)(0x5EAF3FED)
+F (.\project_interrupts.c)(0x5EAF46B0)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include -I ..\include -I ..\drivers\include -I ..\peripherals\include --debug-I.\RTE\_Project-F19-IC:\Users\cocot\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\cocot\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="529" -D_RTE_ -DTM4C123GH6PM-o .\obj\project_interrupts.o --omf_browse .\obj\project_interrupts.crf --depend .\obj\project_interrupts.d)
+I (main.h)(0x5EAF4809)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9B88EA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B88E8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9B88E8)
@@ -96,6 +98,7 @@ I (..\drivers\include\uart.h)(0x5EADC36E)
 I (..\peripherals\include\ft6x06.h)(0x5EADC36E)
 I (..\drivers\include\i2c.h)(0x5EADC36E)
 I (..\peripherals\include\io_expander.h)(0x5EADC36E)
+I (..\peripherals\include\eeprom.h)(0x5EADC36E)
 I (project_interrupts.h)(0x5EAF3E48)
 I (project_hardware_init.h)(0x5EAE1E29)
 F (.\project_interrupts.h)(0x5EAF3E48)()
