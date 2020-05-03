@@ -36,6 +36,7 @@
 #include "serial_debug.h"
 #include "ft6x06.h"
 #include "lcd_images.h"
+#include "io_expander.h"
 
 #include "project_interrupts.h"
 #include "project_hardware_init.h"
@@ -96,6 +97,7 @@ bool check_trail_collision(player_t* player, player_t* ref);
 void player1_input(PS2_DIR_t input);
 
 void pause_pressed();
+void end_game();
 
 
 #endif

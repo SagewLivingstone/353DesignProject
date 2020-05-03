@@ -27,6 +27,7 @@
 .\obj\project_interrupts.o: ..\drivers\include\uart.h
 .\obj\project_interrupts.o: ..\peripherals\include\ft6x06.h
 .\obj\project_interrupts.o: ..\drivers\include\i2c.h
+.\obj\project_interrupts.o: ..\peripherals\include\io_expander.h
 .\obj\project_interrupts.o: project_interrupts.h
 .\obj\project_interrupts.o: main.h
 .\obj\project_interrupts.o: project_hardware_init.h

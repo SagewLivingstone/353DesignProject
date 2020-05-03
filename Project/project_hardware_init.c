@@ -29,6 +29,7 @@ void init_hardware()
 	lcd_clear_screen(LCD_COLOR_BLACK);
 	ps2_initialize();
 	ft6x06_init();
+	io_expander_init();
 	
 	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 50000000, false, true); // Status LED Timer
 	gp_timer_config_32(TIMER2_BASE,TIMER_TAMR_TAMR_PERIOD, 833334, false, true); // Game Tick Timer 60Hz

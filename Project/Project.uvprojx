@@ -512,6 +512,11 @@
               <FileType>2</FileType>
               <FilePath>..\peripherals\c\ws2812b.s</FilePath>
             </File>
+            <File>
+              <FileName>io_expander.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\peripherals\c\io_expander.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

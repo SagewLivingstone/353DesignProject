@@ -44,6 +44,7 @@ void init_game()
 	//...
 	printf("Game beginning\n\r");
 	game_over = false;
+	io_expander_write_reg(MCP23017_GPIOA_R, 0x00);
 }
 
 void game_loop()
@@ -336,7 +337,13 @@ void update_p1()
 	move_player(&player1);
 	if(check_collision(&player1, &player2))
 	{
-		game_over = true;
+		end_game();
 	}
 	// Check_Collision...
+}
+
+void end_game()
+{
+	game_over = true;
+	io_expander_write_reg(MCP23017_GPIOA_R, 0xff);
 }
