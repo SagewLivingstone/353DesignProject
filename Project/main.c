@@ -51,6 +51,7 @@ void game_loop()
 {
 	uint16_t trail_decimator = 0;
 	uint16_t touch_count = 0;
+	uint16_t x,y,td_status;
 	
 	init_game();
 	
@@ -81,16 +82,15 @@ void game_loop()
 	// Wait for screen tap
 	while(1)
 	{
-		if(kill) continue;
 		if(ft6x06_read_td_status())
 		{
-			if(ft6x06_read_td_status() == 2) touch_count++;
+			x = ft6x06_read_x();
+			y = ft6x06_read_y();
+			td_status = ft6x06_read_td_status();
+			printf("S: %i X: %i Y: %i\n", td_status, x, y);
 		}
-		else
-		{
-			touch_count = 0;
-		}
-		if(touch_count > 40) break;
+    
+    gp_timer_wait(TIMER0_BASE, 5000000);
 	};	
 	printf("Restarting game...\n\r");
 }

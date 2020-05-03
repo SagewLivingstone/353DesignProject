@@ -32,6 +32,7 @@ void init_hardware()
 	io_expander_init();
 	lp_io_init();
 	
+	gp_timer_config_32(TIMER0_BASE, TIMER_TAMR_TAMR_1_SHOT, 0, false, false);
 	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 5000000, false, true); // Status LED Timer
 	gp_timer_config_32(TIMER3_BASE,TIMER_TAMR_TAMR_1_SHOT, 500000, false, true); // Status LED Timer
 	gp_timer_config_32(TIMER2_BASE,TIMER_TAMR_TAMR_PERIOD, 833334, false, true); // Game Tick Timer 60Hz

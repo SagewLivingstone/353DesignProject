@@ -35,17 +35,21 @@ main.h(99): warning:  #1295-D: Deprecated declaration pause_pressed - give arg t
 main.h(100): warning:  #1295-D: Deprecated declaration end_game - give arg types
   void end_game();
 project_hardware_init.c: 3 warnings, 0 errors
-compiling project_interrupts.c...
+compiling main.c...
 lcd_images.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
 main.h(99): warning:  #1295-D: Deprecated declaration pause_pressed - give arg types
   void pause_pressed();
 main.h(100): warning:  #1295-D: Deprecated declaration end_game - give arg types
   void end_game();
-project_interrupts.c: 3 warnings, 0 errors
+main.c(95): warning:  #111-D: statement is unreachable
+  	printf("Restarting game...\n\r");
+main.c(53): warning:  #177-D: variable "touch_count"  was declared but never referenced
+  	uint16_t touch_count = 0;
+main.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=9604 RO-data=1016 RW-data=36 ZI-data=20212  
-".\obj\ece353_base_project.axf" - 0 Error(s), 6 Warning(s).
+Program Size: Code=9648 RO-data=1016 RW-data=36 ZI-data=20212  
+".\obj\ece353_base_project.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -74,7 +78,7 @@ Package Vendor: Keil
       Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
       Include file:  Device\Include\TM4C123\TM4C123.h
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
