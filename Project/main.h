@@ -39,6 +39,8 @@
 #include "project_interrupts.h"
 #include "project_hardware_init.h"
 
+#define TRAIL_MAX_SIZE 1000
+
 typedef enum{
   PS2_DIR_UP,
   PS2_DIR_DOWN,
@@ -69,7 +71,7 @@ typedef struct
 	uint32_t front_x;
 	uint32_t front_y;
 	// Trail
-	trail_t trail[400];
+	trail_t trail[TRAIL_MAX_SIZE];
 	uint32_t trail_index;
 	
 } player_t;
