@@ -37,6 +37,7 @@ void init_game()
 	player1.y = 30;
 	player1.fColor = LCD_COLOR_CYAN;
 	player1.bColor = LCD_COLOR_BLACK;
+	memset(player1.trail, 0, sizeof(player1.trail)); // Clear player trail
 	set_player_direction(&player1, PS2_DIR_RIGHT);
 	
 	// Setup player 2
@@ -70,6 +71,10 @@ void game_loop()
 								player1.fColor, 
 								player1.bColor);
 	}
+	
+	printf("Game over! Tap screen to restart\n\r");
+	
+	// Wait for screen tap
 }
 
 //*****************************************************************************
@@ -115,9 +120,7 @@ main(void)
 	printf("****   and Max Klug   ******\n\r");
 	printf("****************************\n\r");
 	
-	game_loop();
-	
-	while(1){};
+	while(1){ game_loop(); };
 }
 
 void move_player(player_t* player)
@@ -298,7 +301,6 @@ void update_p1()
 	move_player(&player1);
 	if(check_collision(&player1, &player2))
 	{
-		printf("Collision!\n\r");
 		game_over = true;
 	}
 	// Check_Collision...

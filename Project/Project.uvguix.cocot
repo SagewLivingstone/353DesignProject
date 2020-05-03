@@ -1865,9 +1865,9 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>.\main.c</Name>
-        <ColumnNumber>55</ColumnNumber>
-        <TopLine>145</TopLine>
-        <CurrentLine>164</CurrentLine>
+        <ColumnNumber>20</ColumnNumber>
+        <TopLine>33</TopLine>
+        <CurrentLine>46</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -1875,7 +1875,7 @@
       <Doc>
         <Name>.\main.h</Name>
         <ColumnNumber>11</ColumnNumber>
-        <TopLine>74</TopLine>
+        <TopLine>53</TopLine>
         <CurrentLine>77</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
