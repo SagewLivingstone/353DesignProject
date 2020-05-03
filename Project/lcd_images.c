@@ -126,10 +126,16 @@ const uint8_t lightbike_left_height = 24;
 const uint8_t lightbike_right_width = 26;
 const uint8_t lightbike_right_height = 24;
 
+const uint8_t trail_bitmap[] =
+{
+	0xF0, // ####
+	0xF0, // ####
+	0xF0, // ####
+	0xF0, // ####
+};
 
 
 
-
-const uint8_t trail_width = 26;
-const uint8_t trail_height = 24;
+const uint8_t trail_width = 4;
+const uint8_t trail_height = 4;
 

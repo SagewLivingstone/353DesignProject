@@ -211,7 +211,8 @@ void add_trail(player_t* player)
 
 void draw_trail(player_t* player)
 {
-	for(int i = 0; i < 400; i++)
+	int i;
+	for(i = 0; i < 400; i++)
 	{
 		if(player->trail[i].x == 0 && player->trail[i].y == 0) continue;
 		lcd_draw_image(player->trail[i].x,
@@ -252,7 +253,8 @@ bool check_world_collision(player_t* player)
 
 bool check_trail_collision(player_t* player, player_t* ref)
 {
-	for(int i = 0; i < 400; i++)
+	int i;
+	for(i = 0; i < 400; i++)
 	{
 		if(ref->trail[i].x == 0 && ref->trail[i].y == 0) continue;
 		if(player->front_x > ref->trail[i].x - 4 &&
