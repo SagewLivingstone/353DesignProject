@@ -28,14 +28,13 @@
 #include <string.h>
 #include <stdlib.h>
 
-<<<<<<< HEAD
 #include "TM4C123.h"
 #include "gpio_port.h"
 #include "ps2.h"
 #include "lcd.h"
 #include "timers.h"
-=======
+#include "io_expander.h"
+
 void TIMER1A_Handler(void);
->>>>>>> master
 
 #endif

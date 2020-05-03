@@ -22,6 +22,7 @@
 
 #include "main.h"
 #include "project_interrupts.h"
+#include "io_expander.c"
 
 static volatile uint16_t PS2_X_DATA = 0;
 static volatile uint16_t PS2_Y_DATA = 0;

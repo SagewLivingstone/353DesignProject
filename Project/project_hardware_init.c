@@ -22,6 +22,7 @@
 
 #include "main.h"
 
+
 void init_hardware()
 {
 	printf("Initializing Hardware...\n\r");

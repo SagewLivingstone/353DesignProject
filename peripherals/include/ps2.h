@@ -29,16 +29,6 @@
 #include "adc.h"
 #include "driver_defines.h"
 
-#if 1
-typedef enum{
-  PS2_DIR_UP,
-  PS2_DIR_DOWN,
-  PS2_DIR_LEFT,
-  PS2_DIR_RIGHT,
-  PS2_DIR_CENTER,
-  PS2_DIR_INIT,
-} PS2_DIR_t;
-#endif
 
 // ADD CODE
 // Define the base addresses for the GPIO port that is connected to the PS2 Joystick
@@ -56,17 +46,17 @@ typedef enum{
 
 #define PS2_SAMPLE_TICKS						50000
 
-<<<<<<< HEAD
+
 #define ADC_LOW_THRESHOLD		0x0600
 #define ADC_MID_THRESHOLD	  0x0800
 #define ADC_HIGH_THRESHOLD	0x0A00
-=======
+
 #define   PS2_X_DIR_PIN      				PE3
 #define   PS2_X_DIR_CH							1
 #define   PS2_Y_DIR_PIN      				PE2
 #define   PS2_Y_DIR_CH							0
 
->>>>>>> master
+
 // ADD CODE
 // Define which bit number ( 0 through 7) each signal is connected to on the GPIO port.
 // This bit number is NOT the value listed in the Pin Number column of the datasheet.  
