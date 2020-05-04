@@ -25,6 +25,7 @@
 #include "main.h"
 
 void TIMER1A_Handler(void);
+void GPIOF_Handler(void);
 
 #define DUTY_CYCLE_INTERVAL 2
 #define DUTY_CYCLE_MAX      50

@@ -44,6 +44,14 @@
 
 #define TRAIL_MAX_SIZE 1000
 
+typedef enum 
+{
+  DEBOUNCE_ONE,
+  DEBOUNCE_1ST_ZERO,
+  DEBOUNCE_2ND_ZERO,
+  DEBOUNCE_PRESSED
+} DEBOUNCE_STATES;
+
 typedef enum{
   PS2_DIR_UP,
   PS2_DIR_DOWN,
@@ -96,6 +104,7 @@ bool check_world_collision(player_t* player);
 bool check_trail_collision(player_t* player, player_t* ref);
 
 void player1_input(PS2_DIR_t input);
+void player2_input(PS2_DIR_t input);
 
 void pause_pressed();
 void red_win();
@@ -105,5 +114,6 @@ void end_game();
 void write_high_score(uint8_t score);
 uint8_t get_high_score();
 
+bool push_buttons(void);
 
 #endif

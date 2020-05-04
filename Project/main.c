@@ -44,7 +44,13 @@ void init_game()
 	set_player_direction(&player1, PS2_DIR_RIGHT);
 	
 	// Setup player 2
-	//...
+	player2.x = 200;
+	player2.y = 300;
+	player2.fColor = LCD_COLOR_RED;
+	player2.bColor = LCD_COLOR_BLACK;
+	memset(player2.trail, 0, sizeof(player2.trail)); // Clear player trail
+	set_player_direction(&player2, PS2_DIR_LEFT);
+	
 	printf("Game beginning\n\r");
 	printf("Current high score: %d seconds\n\r", highscore);
 	game_over = false;
@@ -56,22 +62,25 @@ void game_loop()
 {
 	uint16_t trail_decimator = 0;
 	uint16_t touch_count = 0;
+	uint8_t data;
 	
 	init_game();
 	
 	while(!game_over)
 	{
+		// Forcibly clear the pushbutton interrupt
+		io_expander_read_reg(MCP23017_GPIOB_R);
+		
 		if(kill) continue;
 		
 		if(!trail_decimator)
 		{
 			draw_trail(&player1);
-			// draw p2 too
+			draw_trail(&player2);
 		}
 		trail_decimator = (trail_decimator + 1) % 8; // Only redraw trail every 8 frames
 		
 		calc_player_bounds(&player1);
-		// Draw at max speed
 		lcd_draw_image(player1.x, 
 								player1.width, 
 								player1.y, 
@@ -79,6 +88,15 @@ void game_loop()
 								player1.bitmap, 
 								player1.fColor, 
 								player1.bColor);
+		
+		calc_player_bounds(&player2);
+		lcd_draw_image(player2.x, 
+								player2.width, 
+								player2.y, 
+								player2.height, 
+								player2.bitmap, 
+								player2.fColor, 
+								player2.bColor);
 	}
 	
 	printf("Game over! Touch screen with two fingers to restart\n\r");
@@ -89,7 +107,7 @@ void game_loop()
 		if(kill) continue;
 		if(ft6x06_read_td_status())
 		{
-			if(ft6x06_read_td_status() == 2) touch_count++;
+			if(ft6x06_read_td_status() == 1) touch_count++;
 		}
 		else
 		{
@@ -258,6 +276,15 @@ void player1_input(PS2_DIR_t input)
 	set_player_direction(&player1, input);
 }
 
+void player2_input(PS2_DIR_t input)
+{
+	if(kill) return;
+	
+	if(input == PS2_DIR_CENTER) return;
+	if(player2.direction == input) return;
+	set_player_direction(&player2, input);
+}
+
 void add_trail(player_t* player)
 {
 	player->trail[player->trail_index].x = player->x;
@@ -321,7 +348,6 @@ bool check_trail_collision(player_t* player, player_t* ref)
 			player->front_y > ref->trail[i].y - 2 &&
 			player->front_y < ref->trail[i].y + 2)
 		{
-			printf("Collided with %d %d\n\r", ref->trail[i].y, ref->trail[i].y);
 			return true;
 		}
 	}
@@ -346,6 +372,27 @@ void update_p1()
 		if(check_collision(&player1, &player2))
 		{
 			red_win();
+		}
+	}
+}
+
+void update_p2()
+{
+	static uint32_t trail_decimator = 0;
+	
+	if(kill) return;
+	
+	// Add trail piece
+	if(!trail_decimator)
+		add_trail(&player2);
+	trail_decimator = (trail_decimator + 1) % 4;
+	
+	move_player(&player2);
+	if(!game_over)
+	{
+		if(check_collision(&player2, &player1))
+		{
+			blue_win();
 		}
 	}
 }

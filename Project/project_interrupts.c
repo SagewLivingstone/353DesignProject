@@ -33,6 +33,8 @@ static volatile uint16_t duty_cycle = 70;
 
 extern uint16_t game_time;
 
+volatile bool pressed = true;
+volatile uint8_t BTN_DIR;
 
 //*****************************************************************************
 // Returns the most current direction that was pressed.
@@ -101,7 +103,7 @@ void TIMER2A_Handler(void)
 {
 	// Update game state at ~50hz
 	update_p1();
-	//update_p2();
+	update_p2();
 	
 	// Clear the interrupt
 	TIMER2->ICR |= TIMER_ICR_TATOCINT;
@@ -150,4 +152,58 @@ void ADC0SS2_Handler(void)
   // Clear the interrupt
   ADC0->ISC |= ADC_ISC_IN2;
 }
+
+PS2_DIR_t btn_dir_to_ps2_dir(PS2_DIR_t dir)
+{
+	if(dir == DIR_BTN_LEFT_PIN)
+	{
+		return PS2_DIR_LEFT;
+	}
+	if(dir == DIR_BTN_RIGHT_PIN)
+	{
+		return PS2_DIR_RIGHT;
+	}
+	if(dir == DIR_BTN_UP_PIN)
+	{
+		return PS2_DIR_UP;
+	}
+	if(dir == DIR_BTN_DOWN_PIN)
+	{
+		return PS2_DIR_DOWN;
+	}
+	return PS2_DIR_CENTER;
+}
+
+void GPIOF_Handler(void)
+{
+		uint8_t data, gpio_data;
+		GPIOA_Type *gpioPort;
+	
+		gpioPort = (GPIOA_Type *)IO_EXPANDER_IRQ_GPIO_BASE;
+		data = io_expander_read_reg(MCP23017_GPIOB_R);
+		
+		if(~data & 0x8){
+			BTN_DIR = DIR_BTN_RIGHT_PIN;
+		}
+		
+		else if(~data & 0x4){
+			BTN_DIR = DIR_BTN_LEFT_PIN;
+		}
+		
+		else if(~data & 0x2){
+			BTN_DIR = DIR_BTN_DOWN_PIN;
+		}
+		
+		else if(~data & 0x1){
+			BTN_DIR = DIR_BTN_UP_PIN;
+		}
+		
+		if(data != 0xf) // "Debounce" by disallowing before release
+		{
+			player2_input(btn_dir_to_ps2_dir(BTN_DIR));
+		}
+		
+		io_expander_read_reg(MCP23017_GPIOB_R);
+		gpioPort->ICR |= IO_EXPANDER_IRQ_PIN_NUM;
+}	
 

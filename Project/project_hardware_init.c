@@ -29,9 +29,9 @@ void init_hardware()
 	lcd_clear_screen(LCD_COLOR_BLACK);
 	ps2_initialize();
 	ft6x06_init();
-	io_expander_init();
 	lp_io_init();
 	eeprom_init();
+	io_expander_init();
 	
 	gp_timer_config_32(TIMER1_BASE,TIMER_TAMR_TAMR_PERIOD, 5000000, false, true); // Status LED Duty Cycle Timer
 	gp_timer_config_32(TIMER3_BASE,TIMER_TAMR_TAMR_1_SHOT, 500000, false, true); // Status LED PWM Timer
