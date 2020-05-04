@@ -228,7 +228,6 @@ void pause_pressed()
 
 void set_player_direction(player_t* player, PS2_DIR_t dir)
 {
-	player->direction = dir;
 	// Set bitmap from direction
 	//   and set width and height
 	switch(dir)
@@ -264,6 +263,8 @@ void set_player_direction(player_t* player, PS2_DIR_t dir)
 		default: break;
 	}
 	
+	player->direction = dir;
+	
 	calc_player_bounds(player);
 }
 
@@ -273,6 +274,12 @@ void player1_input(PS2_DIR_t input)
 	
 	if(input == PS2_DIR_CENTER) return;
 	if(player1.direction == input) return;
+	printf("Dir %d %d\n\r", player1.direction, input);
+	if(player1.direction == PS2_DIR_UP && input == PS2_DIR_DOWN) return;
+	if(player1.direction == PS2_DIR_DOWN && input == PS2_DIR_UP) return;
+	if(player1.direction == PS2_DIR_LEFT && input == PS2_DIR_RIGHT) return;
+	if(player1.direction == PS2_DIR_RIGHT && input == PS2_DIR_LEFT) return;
+	printf("Set player dir\n\r");
 	set_player_direction(&player1, input);
 }
 
@@ -282,6 +289,10 @@ void player2_input(PS2_DIR_t input)
 	
 	if(input == PS2_DIR_CENTER) return;
 	if(player2.direction == input) return;
+	if(player2.direction == PS2_DIR_UP && input == PS2_DIR_DOWN) return;
+	if(player2.direction == PS2_DIR_DOWN && input == PS2_DIR_UP) return;
+	if(player2.direction == PS2_DIR_LEFT && input == PS2_DIR_RIGHT) return;
+	if(player2.direction == PS2_DIR_RIGHT && input == PS2_DIR_LEFT) return;
 	set_player_direction(&player2, input);
 }
 
@@ -347,6 +358,13 @@ bool check_trail_collision(player_t* player, player_t* ref)
 			player->front_x < ref->trail[i].x + 2 &&
 			player->front_y > ref->trail[i].y - 2 &&
 			player->front_y < ref->trail[i].y + 2)
+		{
+			return true;
+		}
+		if(player->front_x > player->trail[i].x - 2 &&
+			player->front_x < player->trail[i].x + 2 &&
+			player->front_y > player->trail[i].y - 2 &&
+			player->front_y < player->trail[i].y + 2)
 		{
 			return true;
 		}
